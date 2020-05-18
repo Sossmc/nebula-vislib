@@ -2,6 +2,7 @@
 
 ## In Short
 
+0. To install dependencies, run `yarn`.
 1. Write your code in `src/visualizations` and import your component in `src/index-dev.js`.
 2. To start dev server with hot module reload, run `yarn dev`.
 3. To build the lib, run `yarn build`.
