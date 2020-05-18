@@ -1,0 +1,48 @@
+variables:
+  IMAGE: $CI_REGISTRY_IMAGE
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: ""
+
+default:
+  image: node:10 # avoid alpine linux when using node-sass :)
+  cache:
+    paths:
+      - node_modules/
+  before_script:
+    - yarn
+
+stages:
+  - test
+  - build
+  - deploy
+
+test:lint:
+  stage: test
+  allow_failure: false
+  script:
+    - yarn lint
+  except:
+    - /^.*-no-test$/i
+
+build:
+  stage: build
+  allow_failure: false
+  script:
+    - yarn build
+  only:
+    - development
+
+publish:
+  stage: deploy
+  allow_failure: false
+  script:
+    - echo $CI_COMMIT_TAG
+    - yarn build
+    - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+    - npm --no-git-tag-version version $CI_COMMIT_TAG
+    - npm publish
+  only:
+    refs:
+      - tags
+    variables:
+      - $CI_COMMIT_TAG =~ /^v\d+\.\d+\.\d+(-[\w\d]+(\.[\w\d]+)*)?$/i

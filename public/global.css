@@ -1,0 +1,17 @@
+g text {
+  font-size: 14px;
+  font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+g .tick text {
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#app {
+  position: relative;
+  margin: auto;
+  width: 500px;
+  height: 500px;
+}
