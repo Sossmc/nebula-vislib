@@ -1,6 +1,6 @@
 {
   "name": "@sossmc/nebula-vislib",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Visualization components",
   "main": "dist/zjvis.min.js",
   "files": [
