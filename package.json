@@ -1,6 +1,6 @@
 {
-  "name": "zjvis",
-  "version": "0.1.0",
+  "name": "@sossmc/nebula-vislib",
+  "version": "0.0.1",
   "description": "Visualization components",
   "main": "dist/zjvis.min.js",
   "files": [
@@ -15,7 +15,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://git.zjvis.org/visual-analytics-platform/vis-components.git"
+    "url": "git+https://github.com/Sossmc/nebula-vislib.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "author": "ZJVIS",
   "license": "MIT",
